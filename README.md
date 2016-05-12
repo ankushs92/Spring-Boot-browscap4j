@@ -1,0 +1,1 @@
+Spring Boot app that uses [browscap4j](https://github.com/ankushs92/Browscap4j) to extract user agent capabilities from a user agent String . Detailed instructions can be found [here](http://ankushs92.github.io/libraries/2016/05/03/browscap4j.html)
