@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import in.ankushs.browscap4j.domain.BrowserCapabilities;
+import in.ankushs.webbrowscap4j.config.BrowserCapabilities2;
 import in.ankushs.webbrowscap4j.service.BrowscapService;
 
 @RestController
@@ -27,6 +27,10 @@ public class BrowscapController {
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<?> getBrowserCapabilities(@RequestParam(required=true) final String userAgent)
 	{
-		return new ResponseEntity<BrowserCapabilities>(browscapService.getBrowerCapabilities(userAgent),HttpStatus.OK);
+		long start = System.currentTimeMillis();
+		long stop = System.currentTimeMillis();
+		final BrowserCapabilities2 b2 =  browscapService.getBrowerCapabilities(userAgent);
+		System.out.println("Total time taken : " + (stop-start));
+		return new ResponseEntity<BrowserCapabilities2>( b2,HttpStatus.OK);
 	}
 }

@@ -1,7 +1,7 @@
 package in.ankushs.webbrowscap4j.service;
 
-import in.ankushs.browscap4j.domain.BrowserCapabilities;
+import in.ankushs.webbrowscap4j.config.BrowserCapabilities2;
 
 public interface BrowscapService {
-	BrowserCapabilities getBrowerCapabilities(String userAgent);
+	BrowserCapabilities2 getBrowerCapabilities(String userAgent);
 }

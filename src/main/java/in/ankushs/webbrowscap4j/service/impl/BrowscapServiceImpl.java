@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import in.ankushs.browscap4j.domain.Browscap;
-import in.ankushs.browscap4j.domain.BrowserCapabilities;
+import in.ankushs.webbrowscap4j.config.BrowserCapabilities2;
 import in.ankushs.webbrowscap4j.service.BrowscapService;
 
 @Service
@@ -24,8 +24,8 @@ public class BrowscapServiceImpl implements BrowscapService {
 
 	@Override
 	@Cacheable(cacheNames="browscapCache",key="#userAgent")
-	public BrowserCapabilities getBrowerCapabilities(final String userAgent) {
+	public BrowserCapabilities2 getBrowerCapabilities(final String userAgent) {
 		Assert.hasText(userAgent,"No userAgent was provided");
-		return browscap.lookup(userAgent);
+		return new BrowserCapabilities2(browscap.lookup(userAgent));
 	}
 }
