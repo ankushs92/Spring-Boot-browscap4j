@@ -27,10 +27,7 @@ public class BrowscapController {
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<?> getBrowserCapabilities(@RequestParam(required=true) final String userAgent)
 	{
-		long start = System.currentTimeMillis();
-		long stop = System.currentTimeMillis();
 		final BrowserCapabilities2 b2 =  browscapService.getBrowerCapabilities(userAgent);
-		System.out.println("Total time taken : " + (stop-start));
 		return new ResponseEntity<BrowserCapabilities2>( b2,HttpStatus.OK);
 	}
 }
